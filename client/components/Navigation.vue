@@ -129,7 +129,7 @@ const isShow = useState<boolean>(() => false)
 }
 
 .visible {
-  background: rgba(0, 0, 0, 0.48);
+  background: #000000f0;
   position: fixed;
   height: 100%;
   width: 100%;
@@ -137,6 +137,7 @@ const isShow = useState<boolean>(() => false)
   top: 0;
   opacity: 1;
   .trs(0.3s);
+  z-index: 6;
 }
 
 .visible-menu {

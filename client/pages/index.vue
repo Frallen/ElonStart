@@ -5,6 +5,10 @@
       <div class="head-text">
         <div class="head-text-title" v-html="Page.attributes.Head?.Title"></div>
         <NuxtLink class="button" :to="Page.attributes.Head?.Link.Path">{{ Page.attributes.Head?.Link.Title }}</NuxtLink>
+        <div class="figure"></div>
+      </div>
+      <div class="round">
+        <div class="icon"></div>
       </div>
       <div class="head-features">
         <div class="head-features-item" v-html="item.Text" v-for="item in Page.attributes.Head?.Features"
@@ -21,10 +25,11 @@ const {Page} = storeToRefs(useMain())
 
 await preparePage(name.toString())
 
-const mouseMove = (e: Event) => {
-  const {x, y} = e.currentTarget.getBoundingClientRect();
-  e.currentTarget.style.setProperty("--x", e.clientX - x + "px");
-  e.currentTarget.style.setProperty("--y", e.clientY - y + "px");
+const mouseMove = (e) => {
+  const elem = e.currentTarget as HTMLDivElement
+  const {x, y} = elem.getBoundingClientRect();
+  elem.style.setProperty("--x", e.clientX - x + "px");
+  elem.style.setProperty("--y", e.clientY - y + "px");
 }
 </script>
 
@@ -45,7 +50,6 @@ const mouseMove = (e: Event) => {
 
 .head {
   display: flex;
-  justify-content: space-between;
   margin: 114px 0 164px;
   @media @lg {
     flex-direction: column;
@@ -55,6 +59,8 @@ const mouseMove = (e: Event) => {
   }
 
   &-text {
+    position: relative;
+    width: 48%;
     @media @lg {
       margin: 0 0 50px;
     }
@@ -92,7 +98,39 @@ const mouseMove = (e: Event) => {
 
   }
 
+  .figure {
+    position: absolute;
+    right: 4%;
+    bottom: 5px;
+    width: 54%;
+    height: 43%;
+    content: "";
+    display: block;
+    background: transparent;
+    border-left: 1px solid #ffffff57;
+    border-bottom: 1px solid #ffffff57;
+    transform: skew(39deg);
+  }
+
+  .round {
+    position: relative;
+    width: 4%;
+
+    .icon {
+      height: 10px;
+      width: 10px;
+      background: #000;
+      .br(100%);
+      border: 1px solid #fff;
+      position: absolute;
+      bottom: 0;
+      margin: 0 auto;
+      right: 0;
+    }
+  }
+
   &-features {
+    width: 48%;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
