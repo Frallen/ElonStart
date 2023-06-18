@@ -23,9 +23,9 @@ h6 {
 
 
 .container {
-  padding: 0 10vw;
+  padding: 0 7vw;
   @media @xxl {
-    padding: 0 7vw;
+    padding: 0 6vw;
   }
 
   @media @lg {
@@ -54,15 +54,58 @@ h6 {
   .trs(0.3s);
   text-align: center;
   display: block;
-  .br(5px);
   font-weight: 400;
   font-size: 16px;
   line-height: 23px;
   text-decoration: none;
-  padding: 15px 25px;
+  padding: 11px 24px;
   width: fit-content;
   cursor: pointer;
-  border: none;
   outline: none;
+  color: #fff;
+  border: 1px solid #1a375d;
+  position: relative;
+  overflow: hidden;
+
+
+  /* using CSS custom properties to define the various
+   properties of the borders we're creating,
+   first the thickness of the "border": */
+  --border-thickness: 0.25em;
+  /* the length of the "border" on each of its axes: */
+  --border-length: 90%;
+  /* the start-color of the "border", which will color the
+     corner/start: */
+  --border-corner-color: hsl(0deg 100% 100% / 1);
+  /* the "size" of the corner part: */
+  --border-offset: 0.5em;
+  /* the color that will fade out: */
+  --border-fadeout-color: @blue;
+  background-color: transparent;
+  /* using multiple background-images - using the CSS
+     gradient linear-gradient() function: */
+  background-image: linear-gradient(90deg,
+  var(--border-corner-color) 0 var(--border-offset),
+  var(--border-fadeout-color) var(--border-offset),
+  transparent),
+  linear-gradient(180deg,
+  var(--border-corner-color) 0 var(--border-offset),
+  var(--border-fadeout-color) var(--border-offset),
+  transparent), linear-gradient(270deg,
+  var(--border-corner-color) 0 var(--border-offset),
+  var(--border-fadeout-color) var(--border-offset),
+  transparent),
+  linear-gradient(0deg,
+  var(--border-corner-color) 0 var(--border-offset),
+  var(--border-fadeout-color) var(--border-offset),
+  transparent);
+  /* defining the various background-positions of each of the
+     gradients: */
+  background-position: 0 100%, 100% 0, 100% 0, 0 100%;
+  background-repeat: no-repeat;
+  background-size: var(--border-length) var(--border-thickness),
+  var(--border-thickness) var(--border-length),
+  var(--border-length) var(--border-thickness),
+  var(--border-thickness) var(--border-length);
 }
 

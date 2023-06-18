@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_section_tile_features",
+  "info": {
+    "displayName": "Tile_Features",
+    "icon": "bulletList",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Text": {
+      "type": "customField",
+      "options": {
+        "preset": "toolbar"
+      },
+      "required": true,
+      "customField": "plugin::ckeditor5.CKEditor"
+    }
+  }
+}

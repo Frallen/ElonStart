@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_ui_navigations",
+  "info": {
+    "displayName": "Navigation-link",
+    "icon": "manyWays",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "required": true
+    },
+    "Path": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
