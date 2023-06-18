@@ -35,19 +35,18 @@ const mouseMove = (e) => {
 
 <style scoped lang="less">
 .background {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   z-index: -1;
   background: url("/bg.png") no-repeat;
   background-color: #0c131a;
   background-position: center;
-  height: 100vh;
+  height: 100%;
   width: 100%;
   display: block;
   font-weight: 700;
 }
-
 .head {
   display: flex;
   margin: 114px 0 164px;
@@ -66,6 +65,7 @@ const mouseMove = (e) => {
     }
 
     &-title::v-deep {
+      position: relative;
       color: #fff;
       font-weight: 700;
       font-size: 3.625em;
