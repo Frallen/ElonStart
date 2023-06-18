@@ -110,11 +110,17 @@ const mouseMove = (e) => {
     border-left: 1px solid #ffffff57;
     border-bottom: 1px solid #ffffff57;
     transform: skew(39deg);
+    @media @lg {
+      display: none;
+    }
   }
 
   .round {
     position: relative;
     width: 4%;
+    @media @lg {
+      display: none;
+    }
 
     .icon {
       height: 10px;
@@ -148,7 +154,6 @@ const mouseMove = (e) => {
       //background: #ffffff14;
       border: 1px solid transparent;
       transition: background-color 0.3s ease;
-      overflow: hidden;
       cursor: pointer;
       position: relative;
 
